@@ -67,7 +67,7 @@ func findAssetFromRelease(rel *github.RepositoryRelease,
 		}
 
 		for _, s := range suffixes {
-			if strings.HasSuffix(name, s) { // require version, arch etc
+			if strings.HasSuffix(strings.ToUpper(name), strings.ToUpper(s)) { // require version, arch etc
 				// default: assume single artifact
 				return asset, ver, true
 			}
